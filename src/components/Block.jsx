@@ -1,6 +1,7 @@
 import GetImageUrl from './GetImageUrl.jsx';
 import Elements from './Elements.jsx';
 import Carrousel from './Carrousel.jsx';
+import ProjectCounter from './ProjectCounter.jsx';
 
 export function Block({ data }) {
   switch (data.className) {
@@ -56,7 +57,7 @@ export function Block({ data }) {
     case 'counter-projects':
       return (
         <div className={'block ' + data.className}>
-          <p>{data.content}</p>
+          {ProjectCounter(data)}
         </div>
       );
     default:

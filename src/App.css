@@ -1,0 +1,186 @@
+.outter-grid {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 98vh;
+  background-color: blueviolet;
+}
+
+.col {
+  display: grid;
+  grid-template-rows: auto 500px auto;
+  height: 100%;
+  flex: 1;
+  gap: 10px;
+}
+
+.column-1 {
+  display: grid;
+  grid-template-rows: 1fr 500px 1fr; /* La proporción 1fr para los extremos y 2fr para el centro */
+  gap: 10px; /* Opcional: agrega espacio entre los elementos */
+  width: 100%;
+}
+
+/* Para .column-2 más ancha (2fr) */
+.column-2 {
+  flex: 2;
+}
+
+/* Estilo de los bloques */
+.block {
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  min-height: 50px;
+}
+
+.split-column {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  gap: 10px;
+  height: 100%;
+}
+
+.split-row {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* divide el espacio en 2 */
+  height: 100%;
+  gap: 5px; /* opcional */
+}
+
+/* Cada bloque dentro de split-row ocupa su parte del grid */
+.split-row .block {
+  height: 100%; /* llena su celda */
+  overflow: hidden; /* importante para evitar desbordes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bloque especial de network */
+.block.network {
+  padding: 0;
+  overflow: auto; /* permite scroll si hay muchos <li> */
+}
+
+/* Estilo para el ul */
+.block.network ul {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+.block.network li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block.photo img {
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+.block.resume {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.block.resume a {
+  color: black;
+  text-decoration: none;
+  transform: rotate(270deg);
+}
+
+.block.resume img {
+  justify-self: center;
+  align-self: flex-start;
+  width: fit-content;
+}
+
+.projects-carrousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.techStack {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mobile-projects-carrousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bold {
+  background-color: red !important;
+}
+
+.dots-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: brown;
+  align-items: stretch;
+  border-radius: 6px;
+  position: absolute;
+  height: 12px;
+  bottom: 20px; /* espacio desde el borde inferior */
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 8px;
+  z-index: 10;
+  margin: 0;
+}
+
+.dots-wrapper p {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  background-color: blue;
+  margin: 0 5px 0 5px;
+  border-radius: 6px;
+  width: 4px;
+  height: 4px;
+  font-weight: bolder;
+}
+
+.block.techStack ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  list-style: none;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}

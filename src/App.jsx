@@ -21,15 +21,17 @@ function CreateGrid() {
           <div className="inner-grid">
             <div className="col column-1">
               <Block
-                data={{ className: 'message', content: 'Roylin E. Jimenez' }}
+                data={{ className: 'message', 
+                        class: 'name',
+                content: 'Roylin E. Jimenez' }}
               />
               <div className="split-column">
-                <Block data={{ className: 'photo', content: 'react.svg' }} />
+                <Block data={{ className: 'photo', content: 'boilerplate' }} />
                 <Block
                   data={{
                     className: 'resume',
                     link: '',
-                    image: 'react.svg',
+                    image: 'boilerplate',
                   }}
                 />
               </div>
@@ -37,6 +39,7 @@ function CreateGrid() {
                 <Block
                   data={{
                     className: 'message',
+                    class: 'excelsior',
                     content: 'Excelsior',
                   }}
                 />
@@ -52,8 +55,10 @@ function CreateGrid() {
           <div className="col column-2">
             <Block
               data={{
-                className: 'message',
-                content: 'Jr. Backend Developer at AlticeDO',
+                className: 'profile',
+                top: 'Currently',
+                middle: 'Jr. Back End Developer',
+                bottom: 'at AlticeDO'
               }}
             />
             <Block
@@ -75,6 +80,7 @@ function CreateGrid() {
               data={{
                 className: 'theme',
                 content: 'Tema',
+                image: 'boilerplate'
               }}
             />
             <Block
@@ -88,6 +94,7 @@ function CreateGrid() {
               data={{
                 className: 'counter-projects',
                 content: 'counter',
+                image: 'boilerplate'
               }}
             />
           </div>

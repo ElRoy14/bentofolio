@@ -3,22 +3,27 @@
   gap: 10px;
   width: 100%;
   height: 98vh;
-  background-color: blueviolet;
+  background-color: #1E1B1B;
+}
+
+.inner-grid{
+  flex: 1;
 }
 
 .col {
   display: grid;
   grid-template-rows: auto 500px auto;
   height: 100%;
+  width: 100%;
   flex: 1;
   gap: 10px;
 }
 
 .column-1 {
   display: grid;
-  grid-template-rows: 1fr 500px 1fr; /* La proporción 1fr para los extremos y 2fr para el centro */
-  gap: 10px; /* Opcional: agrega espacio entre los elementos */
-  width: 100%;
+  grid-template-rows: 1fr 500px 1fr; 
+  flex: 1;
+  gap: 10px; 
 }
 
 /* Para .column-2 más ancha (2fr) */
@@ -28,7 +33,7 @@
 
 /* Estilo de los bloques */
 .block {
-  background-color: aqua;
+  background-color: #3B82F6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,16 +43,18 @@
 
 .split-column {
   display: grid;
-  grid-template-columns: 150px 150px;
+  grid-template-columns: auto auto;
   gap: 10px;
   height: 100%;
+  width: 100%;
 }
 
 .split-row {
   display: grid;
+  overflow: hidden;
   grid-template-rows: 1fr 1fr; /* divide el espacio en 2 */
   height: 100%;
-  gap: 5px; /* opcional */
+  gap: 10px; /* opcional */
 }
 
 /* Cada bloque dentro de split-row ocupa su parte del grid */
@@ -62,51 +69,139 @@
 /* Bloque especial de network */
 .block.network {
   padding: 0;
-  overflow: auto; /* permite scroll si hay muchos <li> */
+  background-color: #3B82F6;
 }
+
 
 /* Estilo para el ul */
 .block.network ul {
   display: grid;
-  grid-auto-flow: column;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 0;
+  gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
   height: 100%;
+  width: 70%;
 }
 
 .block.network li {
   display: flex;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: initial;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.network-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;               /* Para centrar si es necesario */
   align-items: center;
   justify-content: center;
 }
 
+.network-icon img {
+  display: block;              /* Elimina espacio "fantasma" debajo */
+  max-width: 100%;             /* Se adapta al ancho del contenedor */
+  max-height: 100%;            /* Se adapta al alto del contenedor */
+  height: 70%;
+  width: 70%;
+  object-fit: cover;         /* Alternativa: 'cover' o 'fill' si prefieres */
+}
+
 .block.photo img {
   border-radius: 15px;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .block.resume {
   display: grid;
-  grid-template-rows: 3fr 1fr;
-  padding: 10px;
-  font-size: 25px;
+  grid-template-rows: 1fr 1fr;
+  background-color: #60A5FA !important;
+  box-shadow: inset -5px -10px 45px #1E40AF;
+  font-size: 30px;
   text-align: center;
 }
 
+.block.message-name{
+  font-family: 'Cabin Condensed', sans-serif;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  font-size: 30px;
+  color: white;
+}
+
+.block.message-excelsior{
+  font-family: 'Cabin Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  background-color: #60A5FA !important;
+  box-shadow: inset 0px -10px 25px #1E40AF;
+}
+
+.block.message-profile{
+  display: grid;
+  height: 100%;
+  background-color: #60A5FA !important;
+}
+
+.block.message-profile > :first-child {
+  align-self: flex-end;
+  font-size:  120%;
+}
+
+.block.message-profile > :last-child {
+  align-self: flex-start;
+  font-size: 130%;
+}
+
+.block.message-profile > :nth-child(2) {
+  background: linear-gradient(20deg, #FFFFFF 40%, #262C40 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.block.message-profile p{
+  font-family: 'Cabin Condensed', sans-serif;
+  color: white;
+  margin: 0;
+  align-self: center;
+  justify-self: center;
+  font-size: 260%;
+}
+
+.block.theme img{
+  justify-self: center;
+  align-self: center;
+  width: 53%;
+  height: 60%;
+  object-fit: fill;
+}
+
 .block.resume a {
-  color: black;
+  font-family: 'Cabin Condensed', sans-serif;
+  color: white;
   text-decoration: none;
-  transform: rotate(270deg);
+  transform: rotate(270deg) translateX(-50%);
 }
 
 .block.resume img {
   justify-self: center;
   align-self: flex-start;
-  width: fit-content;
+  width: 40%;
+  height: 20%;
+  object-fit: fill;
 }
 
 .projects-carrousel {
@@ -115,20 +210,46 @@
   overflow: hidden;
 }
 
-.techStack {
+.techStack .container,
+.techStack .cards,
+.techStack .card {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.block.techStack {
+  display: flex;
   position: relative;
   width: 100%;
+  height: 100%;  
   overflow: hidden;
+  background-color: #60A5FA !important;
+  box-shadow: inset -15px 15px 35px #1E40AF;
+  justify-content: center; 
+  align-items: center;   
+  box-sizing: border-box; 
 }
+
 
 .mobile-projects-carrousel {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
+.container,
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  height: 100%; /* Asegura que el contenedor ocupe toda la altura */
+}
 
 .card {
-  position: relative;
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
 }
@@ -136,25 +257,25 @@
 .card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: fill;
 }
 .bold {
-  background-color: red !important;
+  background-color: #262C40 !important;
 }
 
 .dots-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: brown;
+  background-color: #D9D9D9;
   align-items: stretch;
   border-radius: 6px;
   position: absolute;
   height: 12px;
-  bottom: 20px; /* espacio desde el borde inferior */
+  bottom: 10px; /* espacio desde el borde inferior */
   left: 50%;
   transform: translateX(-50%);
-  gap: 8px;
+  gap: 2px;
   z-index: 10;
   margin: 0;
 }
@@ -163,7 +284,7 @@
   display: flex;
   align-self: center;
   justify-self: center;
-  background-color: blue;
+  background-color: #4A5989;
   margin: 0 5px 0 5px;
   border-radius: 6px;
   width: 4px;
@@ -175,12 +296,62 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
   gap: 10px;
   list-style: none;
-  max-width: 200px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 0;
   align-items: center;
-  height: 100%;
+  justify-items: center;
 }
+
+.techStack ul.grid li {
+  display: flex;
+  width: 110%;
+  height: 110%;
+  align-self: center;
+  justify-self: center;
+}
+
+.block.counter-projects{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cabin Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 400%;
+  color: white;
+}
+
+.counter-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-projects p {
+  margin: 0;
+}
+
+.block.counter-projects img{
+  justify-self: center;
+  align-self: center;
+  width: 40%;
+  height: 45%;
+  object-fit: fill;
+}
+
+.counter-projects-label{
+  border: 3px solid #262C40;
+  box-shadow: 0 0 10px rgba(34, 88, 64, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.counter-projects-label p{
+  margin: 0 25px;
+  font-size: 30%;
+}
+

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import GetImageUrl from './GetImageUrl';
 
 export function ProjectCounter(data){
     const [counter, setCounter] = useState(0);
@@ -22,7 +23,8 @@ export function ProjectCounter(data){
         <div 
         onMouseOver={handleHover}
         className={data.className}>
-            {counter}
+            <p>{counter}</p>
+            <img src={GetImageUrl(data.image)}/>
         </div>
     );
 

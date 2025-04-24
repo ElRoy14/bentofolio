@@ -7,14 +7,22 @@ export function Block({ data }) {
   switch (data.className) {
     case 'message':
       return (
-        <div className={'block ' + data.className}>
+        <div className={'block ' + data.className + '-' + data.class}>
           <p>{data.content}</p>
         </div>
       );
+    case 'profile':
+    return (
+      <div className={'block message-' + data.className}>
+        <p>{data.top}</p>
+        <p>{data.middle}</p>
+        <p>{data.bottom}</p>
+      </div>
+    );
     case 'theme':
       return (
         <div className={'block ' + data.className}>
-          <p>{data.content}</p>
+          <img src={GetImageUrl(data.image)}/>
         </div>
       );
     case 'techStack':
@@ -32,7 +40,7 @@ export function Block({ data }) {
     case 'mobile-projects-carrousel':
       return (
         <div className={'block ' + data.className}>
-          <p>{Carrousel({ projects: data.elements, isImage: true })}</p>
+          {Carrousel({ projects: data.elements, isImage: true })}
         </div>
       );
     case 'photo':
@@ -58,6 +66,9 @@ export function Block({ data }) {
       return (
         <div className={'block ' + data.className}>
           {ProjectCounter(data)}
+          <div className={data.className + '-label'}>
+            <p>Projects</p>
+          </div>
         </div>
       );
     default:

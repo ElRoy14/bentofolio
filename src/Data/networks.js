@@ -4,20 +4,20 @@ export const networks = [
     className: 'network-icon github',
     image: '/network/github-icon.svg',
     name: 'github',
-    link: 'http://github.com',
+    link: 'https://github.com/ElRoy14',
   },
   {
     id: 1,
     className: 'network-icon email',
     image: '/network/email-icon.png',
     name: 'email',
-    link: 'http://email.com',
+    link: 'roylinrodriguez5@gmail.com',
   },
   {
     id: 2,
     className: 'network-icon linkedin',
     image: '/network/linkedin-icon.svg',
     name: 'linkedin',
-    link: 'http://linkedin.com',
+    link: 'https://www.linkedin.com/in/roylinrodriguez',
   },
 ];

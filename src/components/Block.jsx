@@ -52,8 +52,8 @@ export function Block({ data }) {
     case 'resume':
       return (
         <div className={'block ' + data.className}>
-          <a href={data.link}>Resume</a>
-          <img href={data.link} src={GetImageUrl(data.image)} />
+          <p>Resume</p>
+          <a className={'link-' + data.className} href={data.link}><img src={GetImageUrl(data.image)} /></a>
         </div>
       );
     case 'network':

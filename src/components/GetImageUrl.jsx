@@ -1,7 +1,7 @@
 export function GetImageUrl(image) {
   console.log(image);
 
-  return '/src/assets/' + image + '.jpg';
+  return '/src/assets/' + image;
 }
 
 export default GetImageUrl;

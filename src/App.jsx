@@ -26,12 +26,12 @@ function CreateGrid() {
                 content: 'Roylin E. Jimenez' }}
               />
               <div className="split-column">
-                <Block data={{ className: 'photo', content: 'boilerplate' }} />
+                <Block data={{ className: 'photo', image: '/photo/photo.jpg' }} />
                 <Block
                   data={{
                     className: 'resume',
                     link: '',
-                    image: 'boilerplate',
+                    image: '/resume/download-icon.png',
                   }}
                 />
               </div>
@@ -80,7 +80,7 @@ function CreateGrid() {
               data={{
                 className: 'theme',
                 content: 'Tema',
-                image: 'boilerplate'
+                image: '/theme/luna.svg'
               }}
             />
             <Block
@@ -94,7 +94,7 @@ function CreateGrid() {
               data={{
                 className: 'counter-projects',
                 content: 'counter',
-                image: 'boilerplate'
+                image: '/counter/plus-icon.png'
               }}
             />
           </div>
